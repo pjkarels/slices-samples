@@ -154,8 +154,8 @@ class MySliceProvider : SliceProvider() {
                 primaryAction = createToggleNotificationAction()
             }
             row {
-                title = "Row Title"
-                subtitle = "Row Subtitle"
+                title = "Normal Row Title"
+                subtitle = "Start Service Row"
                 primaryAction = createServiceAction()
             }
             row {
