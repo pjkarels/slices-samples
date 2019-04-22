@@ -1,4 +1,4 @@
-package com.nerdery.slicesapp
+package com.bitbybitlabs.slicesapp
 
 import android.app.PendingIntent
 import android.content.Intent
@@ -53,7 +53,7 @@ class MySliceProvider : SliceProvider() {
     override fun onMapIntentToUri(intent: Intent): Uri {
         if (intent.data != null)
             return intent.data!!
-        return Uri.parse("slice-content://com.nerdery.slicesapp/pokeslice")
+        return Uri.parse("slice-content://com.bitbybitlabs.slicesapp/pokeslice")
     }
 
     private fun createSlice(sliceUri: Uri): Slice {
@@ -262,7 +262,7 @@ class MySliceProvider : SliceProvider() {
 
     private fun createActivityAction(): SliceAction {
         val intent = Intent(context, MainActivity::class.java)
-        intent.putExtra("com.nerdery.slicesapp.EXTRA_TOAST_MESSAGE", "Came from Slice")
+        intent.putExtra("com.bitbybitlabs.slicesapp.EXTRA_TOAST_MESSAGE", "Came from Slice")
         return SliceAction.create(
             PendingIntent.getActivity(context, 0, intent, 0),
             IconCompat.createWithResource(context, R.drawable.ic_launcher_foreground),

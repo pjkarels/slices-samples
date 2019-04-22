@@ -1,4 +1,4 @@
-package com.nerdery.slicesapp
+package com.bitbybitlabs.slicesapp
 
 import android.content.BroadcastReceiver
 import android.content.Context

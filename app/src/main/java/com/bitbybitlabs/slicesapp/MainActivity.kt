@@ -1,4 +1,4 @@
-package com.nerdery.slicesapp
+package com.bitbybitlabs.slicesapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,8 +10,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if (intent.hasExtra("com.nerdery.slicesapp.EXTRA_TOAST_MESSAGE")) {
-            Toast.makeText(this, intent.getStringExtra("com.nerdery.slicesapp.EXTRA_TOAST_MESSAGE"), Toast.LENGTH_LONG).show()
+        if (intent.hasExtra("com.bitbybitlabs.slicesapp.EXTRA_TOAST_MESSAGE")) {
+            Toast.makeText(this, intent.getStringExtra("com.bitbybitlabs.slicesapp.EXTRA_TOAST_MESSAGE"), Toast.LENGTH_LONG).show()
         }
     }
 }

@@ -1,11 +1,11 @@
-package com.nerdery.slicesapp
+package com.bitbybitlabs.slicesapp
 
 import android.app.IntentService
 import android.content.Intent
 import android.content.Context
 import android.widget.Toast
 
-private const val ACTION_FOO = "com.nerdery.slicesapp.action.FOO"
+private const val ACTION_FOO = "com.bitbybitlabs.slicesapp.action.FOO"
 
 /**
  * An [IntentService] subclass for handling asynchronous task requests in

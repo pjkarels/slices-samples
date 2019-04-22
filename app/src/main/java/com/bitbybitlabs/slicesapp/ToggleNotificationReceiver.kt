@@ -1,4 +1,4 @@
-package com.nerdery.slicesapp
+package com.bitbybitlabs.slicesapp
 
 import android.app.PendingIntent
 import android.content.BroadcastReceiver
@@ -15,8 +15,8 @@ class ToggleNotificationReceiver : BroadcastReceiver() {
     }
 
     companion object {
-        const val ACTION_TOGGLE_NOTIFICATION = "com.nerdery.slicesapp.ACTION_TOGGLE_NOTIFICATION"
-        val contentProviderUri = Uri.parse("content://com.nerdery.slicesapp/bigslice")
+        const val ACTION_TOGGLE_NOTIFICATION = "com.bitbybitlabs.slicesapp.ACTION_TOGGLE_NOTIFICATION"
+        val contentProviderUri = Uri.parse("content://com.bitbybitlabs.slicesapp/bigslice")
         fun createToggleNotificationPendingIntent(context: Context): PendingIntent {
             val intent = Intent(context, ToggleNotificationReceiver::class.java)
             intent.action = ACTION_TOGGLE_NOTIFICATION
