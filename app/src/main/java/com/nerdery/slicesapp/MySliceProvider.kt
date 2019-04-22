@@ -9,8 +9,21 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.IconCompat
 import androidx.slice.Slice
 import androidx.slice.SliceProvider
-import androidx.slice.builders.*
-import androidx.slice.builders.ListBuilder.*
+import androidx.slice.builders.ListBuilder
+import androidx.slice.builders.ListBuilder.ICON_IMAGE
+import androidx.slice.builders.ListBuilder.INFINITY
+import androidx.slice.builders.ListBuilder.LARGE_IMAGE
+import androidx.slice.builders.ListBuilder.SMALL_IMAGE
+import androidx.slice.builders.SliceAction
+import androidx.slice.builders.cell
+import androidx.slice.builders.gridRow
+import androidx.slice.builders.header
+import androidx.slice.builders.inputRange
+import androidx.slice.builders.list
+import androidx.slice.builders.range
+import androidx.slice.builders.row
+import androidx.slice.builders.seeMoreCell
+import androidx.slice.builders.seeMoreRow
 
 class MySliceProvider : SliceProvider() {
     companion object {
