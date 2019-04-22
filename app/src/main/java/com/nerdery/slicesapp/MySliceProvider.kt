@@ -10,10 +10,6 @@ import androidx.core.graphics.drawable.IconCompat
 import androidx.slice.Slice
 import androidx.slice.SliceProvider
 import androidx.slice.builders.ListBuilder
-import androidx.slice.builders.ListBuilder.ICON_IMAGE
-import androidx.slice.builders.ListBuilder.INFINITY
-import androidx.slice.builders.ListBuilder.LARGE_IMAGE
-import androidx.slice.builders.ListBuilder.SMALL_IMAGE
 import androidx.slice.builders.SliceAction
 import androidx.slice.builders.cell
 import androidx.slice.builders.gridRow
@@ -62,7 +58,7 @@ class MySliceProvider : SliceProvider() {
 
     private fun createSlice(sliceUri: Uri): Slice {
         val activityAction = createActivityAction()
-        return list(context!!, sliceUri, INFINITY) {
+        return list(context!!, sliceUri, ListBuilder.INFINITY) {
             row {
                 title = "Hello Slice World"
                 primaryAction = activityAction
@@ -99,7 +95,7 @@ class MySliceProvider : SliceProvider() {
 
     private fun createSliceWithBuilder(sliceUri: Uri): Slice {
         val activityAction = createActivityAction()
-        return ListBuilder(context!!, sliceUri, INFINITY)
+        return ListBuilder(context!!, sliceUri, ListBuilder.INFINITY)
             .addRow {
                 it.title = "Hello Slice World Builder"
                 it.primaryAction = activityAction
@@ -126,7 +122,7 @@ class MySliceProvider : SliceProvider() {
     private fun createPokemonSlice(sliceUri: Uri): Slice {
         val pokemonList = Pokemon.createPokemonList()
         Log.d("Pokemon Slice", "Pokemon List size: $pokemonList.size.toString()")
-        return ListBuilder(context!!, sliceUri, INFINITY)
+        return ListBuilder(context!!, sliceUri, ListBuilder.INFINITY)
             .setAccentColor((ContextCompat.getColor(context, R.color.colorPrimary)))
             .addAction(createToggleNotificationAction())
             .setHeader {
@@ -144,7 +140,7 @@ class MySliceProvider : SliceProvider() {
             .setSeeMoreRow {
                 it.apply {
                     title = "See all Pokemon"
-                    addEndItem(IconCompat.createWithResource(context, R.drawable.pokeball), ICON_IMAGE)
+                    addEndItem(IconCompat.createWithResource(context, R.drawable.pokeball), ListBuilder.ICON_IMAGE)
                     primaryAction = createViewAllPokemonAction()
                 }
             }
@@ -163,7 +159,7 @@ class MySliceProvider : SliceProvider() {
             }
             row {
                 title = "Row with end item"
-                addEndItem(IconCompat.createWithResource(context, NotificationSettings.getIcon()), ICON_IMAGE)
+                addEndItem(IconCompat.createWithResource(context, NotificationSettings.getIcon()), ListBuilder.ICON_IMAGE)
                 primaryAction = createToggleNotificationAction()
             }
             row {
@@ -173,16 +169,16 @@ class MySliceProvider : SliceProvider() {
             }
             row {
                 title = "Row with title item"
-                setTitleItem(IconCompat.createWithResource(context, R.drawable.ic_notification_on), ICON_IMAGE)
+                setTitleItem(IconCompat.createWithResource(context, R.drawable.ic_notification_on), ListBuilder.ICON_IMAGE)
                 primaryAction = createToggleAction("Clicked Toggle Row")
             }
             row {
                 title = "Row with both"
                 subtitle = "Yes, you can have both"
-                setTitleItem(IconCompat.createWithResource(context, R.drawable.ic_notification_on), ICON_IMAGE)
-                addEndItem(IconCompat.createWithResource(context, R.drawable.ic_notification_off), ICON_IMAGE)
-                addEndItem(IconCompat.createWithResource(context, R.drawable.ic_launcher_foreground), ICON_IMAGE)
-                addEndItem(IconCompat.createWithResource(context, R.drawable.bulbasaur), ICON_IMAGE)
+                setTitleItem(IconCompat.createWithResource(context, R.drawable.ic_notification_on), ListBuilder.ICON_IMAGE)
+                addEndItem(IconCompat.createWithResource(context, R.drawable.ic_notification_off), ListBuilder.ICON_IMAGE)
+                addEndItem(IconCompat.createWithResource(context, R.drawable.ic_launcher_foreground), ListBuilder.ICON_IMAGE)
+                addEndItem(IconCompat.createWithResource(context, R.drawable.bulbasaur), ListBuilder.ICON_IMAGE)
                 primaryAction = createToggleAction("Clicked Toggle Row")
             }
             inputRange {
@@ -205,7 +201,7 @@ class MySliceProvider : SliceProvider() {
                         contentIntent = createPokemonIntent("https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)")
                         addTitleText("Grid Cell Title")
                         addText("Small Image")
-                        addImage(IconCompat.createWithResource(context, R.drawable.bulbasaur), SMALL_IMAGE)
+                        addImage(IconCompat.createWithResource(context, R.drawable.bulbasaur), ListBuilder.SMALL_IMAGE)
                     }
                 }
                 addCell {
@@ -213,22 +209,22 @@ class MySliceProvider : SliceProvider() {
                         contentIntent = createPokemonIntent("https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)")
                         addTitleText("Grid Cell Title 2")
                         addText("Large Image")
-                        addImage(IconCompat.createWithResource(context, R.drawable.ivysaur), LARGE_IMAGE)
+                        addImage(IconCompat.createWithResource(context, R.drawable.ivysaur), ListBuilder.LARGE_IMAGE)
                     }
                 }
                 cell {
                     addText("Icon Image")
-                    addImage(IconCompat.createWithResource(context, R.drawable.venusaur), ICON_IMAGE)
+                    addImage(IconCompat.createWithResource(context, R.drawable.venusaur), ListBuilder.ICON_IMAGE)
                     contentIntent = createPokemonIntent("https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)")
                 }
                 cell {
                     addText("Icon Image")
-                    addImage(IconCompat.createWithResource(context, R.drawable.charmander), ICON_IMAGE)
+                    addImage(IconCompat.createWithResource(context, R.drawable.charmander), ListBuilder.ICON_IMAGE)
                     contentIntent = createPokemonIntent("https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)")
                 }
                 cell {
                     addText("Icon Image")
-                    addImage(IconCompat.createWithResource(context, R.drawable.charmeleon), ICON_IMAGE)
+                    addImage(IconCompat.createWithResource(context, R.drawable.charmeleon), ListBuilder.ICON_IMAGE)
                     contentIntent = createPokemonIntent("https://bulbapedia.bulbagarden.net/wiki/Pok%C3%A9mon_(species)")
                 }
                 // shows when there isn't enough room to display all the cells
@@ -350,7 +346,7 @@ class MySliceProvider : SliceProvider() {
                     it.addCell {
                         it.apply {
                             addTitleText(pokemon.name)
-                            addImage(IconCompat.createWithResource(context, pokemon.image), SMALL_IMAGE)
+                            addImage(IconCompat.createWithResource(context, pokemon.image), ListBuilder.SMALL_IMAGE)
                             addText(pokeType)
                             contentIntent = createPokemonIntent(pokemon.url)
                         }
